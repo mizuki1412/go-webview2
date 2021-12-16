@@ -64,12 +64,7 @@ func NewWindow(debug bool, window unsafe.Pointer) WebView {
 	chromium := edge.NewChromium()
 	chromium.MessageCallback = w.msgcb
 	chromium.Debug = debug
-	chromium.SetPermission(edge.CoreWebView2PermissionKindClipboardRead, edge.CoreWebView2PermissionStateAllow)
-	chromium.SetPermission(edge.CoreWebView2PermissionKindCamera, edge.CoreWebView2PermissionStateAllow)
-	chromium.SetPermission(edge.CoreWebView2PermissionKindGeolocation, edge.CoreWebView2PermissionStateAllow)
-	chromium.SetPermission(edge.CoreWebView2PermissionKindMicrophone, edge.CoreWebView2PermissionStateAllow)
-	chromium.SetPermission(edge.CoreWebView2PermissionKindNotifications, edge.CoreWebView2PermissionStateAllow)
-	chromium.SetPermission(edge.CoreWebView2PermissionKindOtherSensors, edge.CoreWebView2PermissionStateAllow)
+	chromium.SetGlobalPermission(edge.CoreWebView2PermissionStateAllow)
 
 	w.browser = chromium
 	w.mainthread, _, _ = w32.Kernel32GetCurrentThreadID.Call()
