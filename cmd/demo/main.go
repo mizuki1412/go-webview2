@@ -1,9 +1,8 @@
 package main
 
 import (
+	"github.com/mizuki1412/go-webview2"
 	"log"
-
-	"github.com/jchv/go-webview2"
 )
 
 func main() {
